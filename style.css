@@ -65,7 +65,7 @@ nav a {
 section {
   padding: 20px;
   margin: 15px;
-  background: black;
+  background: white;
   border-radius: 10px;
   transition: transform 0.3s;
 }
@@ -78,7 +78,7 @@ section:hover {
 .skills span {
   display: inline-block;
   background: #4facfe;
-  color: black;
+  color: white;
   padding: 8px 12px;
   margin: 5px;
   border-radius: 20px;
@@ -104,7 +104,7 @@ section:hover {
   margin-top: 10px;
   padding: 8px 12px;
   background: #4facfe;
-  color: black;
+  color: white;
   text-decoration: none;
   border-radius: 5px;
 }
