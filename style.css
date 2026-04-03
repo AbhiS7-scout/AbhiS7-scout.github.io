@@ -21,8 +21,14 @@ header {
 
 /* Buttons */
 .buttons {
-  margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
+.btn {
+    margin: 5px;
+  }
 
 .btn {
   display: inline-block;
