@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhinav Singh | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --primary: #38bdf8; --card: rgba(30, 41, 59, 0.6); }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #38bdf8, transparent);
+      top: -100px;
+      left: -100px;
+      opacity: 0.2;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(40px); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(2, 6, 23, 0.7);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      margin: 0;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    nav a {
+      margin-left: 15px;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      left: 0;
+      bottom: -3px;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after { width: 100%; }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      margin: 10px 0;
+      font-size: 2.2rem;
+    }
+
+    .typing {
+      border-right: 2px solid #38bdf8;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 3s steps(30, end) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing { to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 15px 0;
+      transition: 0.4s;
+      border: 1px solid rgba(255,255,255,0.05);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      color: #000;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    form { display: flex; flex-direction: column; gap: 10px; }
+
+    input, textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: #020617;
+      color: #fff;
+    }
+
+    .btn {
+      padding: 12px;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #020617;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Abhinav Singh</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <img src="profile.jpg" alt="Abhinav Singh">
+  <h2>Hi, I'm Abhinav</h2>
+  <p class="typing">Aspiring Developer | Building Real Projects</p>
+</div>
+
+<section id="about">
+  <div class="card">
+    <p>I am focused on learning web development and building high-quality projects.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="skills-list">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+  </div>
+</section>
+
+<section id="projects">
+  <div id="project-list" class="grid"></div>
+</section>
+
+<section id="contact">
+  <div class="card">
+    <form id="contactForm">
+      <input type="text" name="from_name" placeholder="Your Name" required>
+      <input type="email" name="from_email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Abhinav Singh</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+emailjs.init("BS-ldsJaBjUh-6x0i");
+
+// Projects
+const projects = [
+  { title: "Portfolio Website", desc: "Modern portfolio with animations" },
+  { title: "Weather App", desc: "API-based app" }
+];
+
+const container = document.getElementById("project-list");
+projects.forEach(p => {
+  const div = document.createElement("div");
+  div.className = "card show";
+  div.innerHTML = `<h3>${p.title}</h3><p>${p.desc}</p>`;
+  container.appendChild(div);
+});
+
+// Contact UX
+const form = document.getElementById('contactForm');
+const btn = form.querySelector('.btn');
+
+const statusMsg = document.createElement('p');
+form.appendChild(statusMsg);
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  btn.disabled = true;
+  btn.innerText = 'Sending...';
+  statusMsg.innerText = '';
+
+  emailjs.sendForm(
+    'service_dq1gajh',
+    'template_7stt9fa',
+    this
+  ).then(() => {
+    btn.innerText = 'Send Message';
+    btn.disabled = false;
+    statusMsg.style.color = '#4ade80';
+    statusMsg.innerText = 'Message sent successfully!';
+    form.reset();
+  }).catch((error) => {
+    btn.innerText = 'Send Message';
+    btn.disabled = false;
+    statusMsg.style.color = '#f87171';
+    statusMsg.innerText = 'Failed to send message.';
+    console.log(error);
+  });
+});
+</script>
+
+</body>
+</html>
